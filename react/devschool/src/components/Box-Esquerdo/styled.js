@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-
 const BoxLeft = styled.div`
 background-color: #2B3031;
 padding: 2em 0em 1em 0em;
