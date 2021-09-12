@@ -1,15 +1,9 @@
-import { Container, BoxRight } from './styled'
-
-import BoxEsquerdo from "../../components/Box-Esquerdo"
-import ContainerBoxRight from '../../components/Box-Direito/Cabecalho'
+import { Container} from './styled'
 
 export default function Devschool() {
     return(
         <Container> 
-            <BoxEsquerdo/>
-            <BoxRight>
-            <ContainerBoxRight/> 
-            </BoxRight>
+
         </Container>
     )
 }
