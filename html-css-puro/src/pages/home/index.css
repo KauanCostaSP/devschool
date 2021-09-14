@@ -27,6 +27,13 @@
     padding-left: 2em;
 }
 
+.book-box-left img{
+    
+    height: 1.5em;
+    margin-top: 0.6em;
+    margin-left: 2em;
+}
+
 .text-box-left{
 
    color: white;
@@ -36,12 +43,6 @@
    padding-top: 0.5em;
 }
 
-.book-box-left img{
-    
-    height: 1.5em;
-    margin-top: 0.6em;
-    margin-left: 2em;
-}
 
 .text-box-left b{
     color: #EA10C7;
@@ -92,14 +93,22 @@
 .box-right{
     display: flex;
     flex-direction: column;
-    background-color: #F5F5F5;
+    width: 100%;
 }
+
 
 .Retangulo-3{
     display: flex;
     flex-direction: row;
     background-color: white;
 }
+
+
+
+
+
+
+
 
 .foto-de-perfil img{
     margin: 0.7em 0em 0.5em 2em;
@@ -137,6 +146,12 @@ margin-left: 41em;
 .Sair img:hover{
     cursor: pointer;
 }
+
+
+
+
+
+
 
 .linha-roxa{
     margin: 1.7em 0em 0em 2.5em;
