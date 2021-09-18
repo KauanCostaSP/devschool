@@ -2,8 +2,25 @@ import {Container, BoxRight} from './styled'
 
 import Menu from "../../components/menu"
 import Cabecalho from "../../components/cabecalho"
+import { useState, useEffect } from 'react';
+import Api from '../../service/api'
 
-export default function site() {
+const api = new Api();
+
+
+export default function Index() {
+
+  const [alunos, setAlunos] = useState([]);
+
+  async function listar() {
+    let r = await api.listar()
+    setAlunos(r);
+  }
+
+  useEffect(() => {
+      listar();
+  }, [])
+
     return(
         <Container> 
             <Menu />
@@ -18,16 +35,16 @@ export default function site() {
                   <div className="cadastro-e-alterar">
 
                     <div className="parte-1">
-                      <label for="nome">Nome:</label>
+                      <label>Nome:</label>
                       <input type="text" id="nome" name="nome"/>
-                      <label for="curso">Curso:</label>
+                      <label>Curso:</label>
                       <input type="text" id="curso" name="curso"/>
                     </div>
 
                     <div className="parte-2">
-                      <label for="nome">Chamada:</label>
+                      <label>Chamada:</label>
                       <input type="text" id="chamada" name="chamada"/>
-                      <label for="curso">Turma:</label>
+                      <label>Turma:</label>
                       <input type="text" id="turma" name="turma"/>
 
                       <button> Cadastrar </button>
@@ -44,7 +61,7 @@ export default function site() {
                   </div>  
   
 
-                  <div class="tabela-alunos">
+                  <div className="tabela-alunos">
                     <table>
                       <thead> 
                         <tr>
@@ -57,70 +74,20 @@ export default function site() {
                         </tr>  
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>Fulao da Silva Sauro</td>
-                          <td>14</td>
-                          <td>InfoX</td>
-                          <td>Informática </td>
-                          <td className='editar-deletar-td'><img  src="/assets/images/Editar.png" alt=""/> <img src="../../assets/images/Deletar.png" alt=""/></td>
-                        </tr>  
-                        <tr>
-                          <td> 2</td>
-                          <td>Fulao da Silva Sauro</td>
-                          <td>15</td>
-                          <td>InfoX</td>
-                          <td>Informática</td>
-                          <td className='editar-deletar-td'><img  src="/assets/images/Editar.png" alt=""/> <img src="../../assets/images/Deletar.png" alt=""/></td>
-                        </tr>  
-                        <tr>
-                          <td>3</td>
-                          <td>Fulao da Silva Sauro</td>
-                          <td>16</td>
-                          <td>InfoX</td>
-                          <td>Informática</td>
-                          <td className='editar-deletar-td'><img  src="/assets/images/Editar.png" alt=""/> <img src="../../assets/images/Deletar.png" alt=""/></td>
-                        </tr>
-                        <tr>
-                          <td>4</td>
-                          <td>Fulao da Silva Sauro</td>
-                          <td>17</td>
-                          <td>InfoX</td>
-                          <td>Informática</td>
-                          <td className='editar-deletar-td'><img  src="./assets/images/Editar.png" alt=""/> <img src="../../assets/images/Deletar.png" alt=""/></td>
-                        </tr>
-                        <tr>
-                          <td>5</td>
-                          <td>Fulao da Silva Sauro</td>
-                          <td>18</td>
-                          <td>InfoX</td>
-                          <td>Informática</td>
-                          <td className='editar-deletar-td'><img  src="/assets/images/Editar.png" alt=""/> <img src="../../assets/images/Deletar.png" alt=""/></td>
-                        </tr>
-                        <tr>
-                          <td>6</td>
-                          <td>Fulao da Silva Sauro</td>
-                          <td>19</td>
-                          <td>InfoX</td>
-                          <td>Informática</td>
-                          <td className='editar-deletar-td'><img  src="/assets/images/Editar.png" alt=""/> <img src="../../assets/images/Deletar.png" alt=""/></td>
-                        </tr>
-                        <tr>
-                          <td>7</td>
-                          <td>Fulao da Silva Sauro</td>
-                          <td>20</td>
-                          <td>InfoX</td>
-                          <td>Informática</td>
-                          <td className='editar-deletar-td'><img  src="/assets/images/Editar.png" alt=""/> <img src="../../assets/images/Deletar.png" alt=""/></td>
-                        </tr>
-                        <tr>
-                          <td>8</td>
-                          <td>Fulao da Silva Sauro</td>
-                          <td>21</td>
-                          <td>InfoX</td>
-                          <td>Informática</td>
-                          <td className='editar-deletar-td'><img  src="/assets/images/Editar.png" alt=""/> <img src="../../assets/images/Deletar.png" alt=""/></td>
-                        </tr>
+
+                          {alunos.map(item =>
+
+                               <tr>
+                                  <td>{item.id_matricula}</td>
+                                  <td>{item.nm_aluno}</td>
+                                  <td>{item.nr_chamada}</td>
+                                  <td>{item.nm_turma}</td>
+                                  <td>{item.nm_curso}</td>
+                                  <td className='editar-deletar-td'><img  src="/assets/images/Editar.png" alt=""/> <img src="../../assets/images/Deletar.png" alt=""/></td>
+                             </tr>  
+ 
+                            )}
+
                       </tbody>
                     </table>
                   </div>

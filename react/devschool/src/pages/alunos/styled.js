@@ -115,14 +115,14 @@ thead tr{
 }
 
 th{
-    padding: 16px 32px 16px 32px;
+    padding: 16px 10px 16px 32px;
 }
 
 td{
     color: #6D6868;
     font-size: 13px;
     font-family: Roboto-300;
-    padding: 16px 58px 16px 32px;
+    padding: 16px 34px 16px 32px;
 }
 
 td img{

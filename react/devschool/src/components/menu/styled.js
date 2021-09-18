@@ -4,13 +4,13 @@ const Container = styled.div`
 
 display: flex;
 flex-direction: row;
-height: 100vh;
+height: 100%;
 background-color: #F5F5F5;
+min-height: 90em;
 
 .box-left{
     background-color: #2B3031;
     padding: 2em 0em 1em 0em;
-    
 }
 
 .Retangulo-rosa{
@@ -24,7 +24,7 @@ background-color: #F5F5F5;
 
 .conteudo-box-left{
     display: flex;
-    flex-direction: column;   
+    flex-direction: column; 
 }
 
 .cabecalho-box-left{
